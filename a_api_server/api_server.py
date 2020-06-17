@@ -1,5 +1,6 @@
 import random
 import hashlib
+import string
 import hmac
 import json
 import sys
@@ -40,8 +41,7 @@ data structure:
 """
 token_dict = {}
 
-
-def gen_random_sting(str_len):
+def gen_random_string(str_len):
 	random_char_list = []
 	for _ in range(str_len):
 		random_char = random.choice(string.ascii_letters + string.digits)
