@@ -90,7 +90,13 @@ def validate_request(func):
 
 @app.route('/')
 def index():
-    return "Hello, this is self-help api service, welcome to use!"
+    # return "Hello, this is self-help api service, welcome to use!"
+    return """
+        <div style="text-align: center;">
+            <h1>A Api Server</h1>
+            <p><a href="https://github.com/zhuifengshen/a-api-server">A Api Server</a>，是一个 Resful 风格的简易 API 服务，提供了对用户账号进行增删改查（CRUD）功能的接口服务，包含了接口的签名校验机制，方便 API 自动化测试工具的开发与调试！</p>
+        </div>
+    """
 
 @app.route('/api/get-token', methods=['POST'])
 def get_token():
@@ -230,5 +236,13 @@ def delete_user(uid):
     return response
 
 
+def cli_main():
+    if len(sys.argv) > 1:
+        custom_port = int(sys.argv[1])
+    else:
+        custom_port = FLASK_APP_PORT
+    app.run(host=FLASK_APP_HOST, debug=DEBUG, port=custom_port)
+
+
 if __name__ == "__main__":
-    app.run(FLASK_APP_HOST, debug=DEBUG, port=FLASK_APP_PORT)
+    cli_main()

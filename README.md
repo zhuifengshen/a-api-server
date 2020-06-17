@@ -3,18 +3,31 @@
 ## 一、概述
 A api server，是一个 Resful 风格的简易 API 服务，提供了对用户账号进行增删改查（CRUD）功能的接口服务，包含了接口的签名校验机制，方便 API 自动化测试工具的开发与调试！
 
-```
-1、本地启动服务
-python api_server.py
 
-2、服务端启动服务，推荐使用 gunicorn
+#### 1. 本地启动服务
+- （1）pipy 安装启动
+```
+pip install a_api_server
+a_api_server 自定义端口号（默认5000）
+```
+
+- （2）clone 源码启动
+```
+python api_server.py 自定义端口号（默认5000）
+```
+（注意：兼容 Python2 和 Python3）
+
+### 2. 服务端启动服务，推荐使用 gunicorn
+```
 gunicorn api_server:app -p api_server.pid -b 0.0.0.0:5000 -w 4 -D
 
 服务端关闭服务的命令如下：
 kill -HUP `cat api_server.pid`
 kill `cat api_server.pid`
+```
 
-3、启动后访问地址
+### 3. 启动后访问地址
+```
 http://your.ip:5000
 ```
 
@@ -288,7 +301,7 @@ http://your.ip:5000
 ```
 
 
-#### 2.7. 情况用户数据
+#### 2.7. 清空用户数据
 - 请求路径：/api/reset-all
 - 请求方法：get
 - 响应参数
@@ -304,4 +317,54 @@ http://your.ip:5000
 {
     'success': true
 }
+```
+
+
+## 三、自动化发布：一键打 Tag 并上传至 PYPI 
+
+每次在 __ about __.py 更新版本号后，运行以下命令，实现自动化更新打包上传至 [PYPI](https://pypi.org/) ，同时根据其版本号自动打 Tag 并推送到仓库：
+
+```
+python3 setup.py pypi
+```
+注意：上传前需提前在twine工具中配置自己的Pypi的账号信息！！！
+
+
+### 四、CHANGELOG
+
+```
+v1.0.0
+1、实现对用户账号进行增删改查功能的 API 服务，包含了接口的签名校验机制；
+2、完善了 API 使用文档；
+3、添加了自动化打包脚本；
+```
+
+## 五、致谢
+**A-Api-Server** 工具的产生和打包，注意参考了开源项目 [HttpRunner](https://github.com/httprunner/httprunner)，受益多多，感谢！
+
+
+## LICENSE
+```
+MIT License
+
+Copyright (c) 2019 Devin https://zhangchuzhao.site
+Copyright (c) 2017 Toby Qin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
