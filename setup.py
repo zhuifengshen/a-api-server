@@ -94,7 +94,7 @@ setup(
     ],
     entry_points={  # custom
         'console_scripts': [
-            'a_api_server=api_server:cli_main',
+            'a_api_server=a_api_server.api_server:cli_main',
         ]
     },
     cmdclass={

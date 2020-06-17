@@ -7,18 +7,20 @@ A api server，是一个 Resful 风格的简易 API 服务，提供了对用户�
 #### 1. 本地启动服务
 - （1）pipy 安装启动
 ```
-pip install a_api_server
+pip install A-Api-Server
 a_api_server 自定义端口号（默认5000）
 ```
 
 - （2）clone 源码启动
 ```
+cd a_api_server
 python api_server.py 自定义端口号（默认5000）
 ```
 （注意：兼容 Python2 和 Python3）
 
 ### 2. 服务端启动服务，推荐使用 gunicorn
 ```
+cd a_api_server
 gunicorn api_server:app -p api_server.pid -b 0.0.0.0:5000 -w 4 -D
 
 服务端关闭服务的命令如下：
@@ -340,7 +342,7 @@ v1.0.0
 ```
 
 ## 五、致谢
-**A-Api-Server** 工具的产生和打包，注意参考了开源项目 [HttpRunner](https://github.com/httprunner/httprunner)，受益多多，感谢！
+**A-Api-Server** 工具的产生和打包，主要参考了开源项目 [HttpRunner](https://github.com/httprunner/httprunner)，受益多多，感谢！
 
 
 ## LICENSE
