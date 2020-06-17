@@ -5,7 +5,6 @@ import json
 import sys
 from functools import wraps
 from flask import Flask, make_response, request
-import api_server
 
 
 FLASK_APP_HOST = '0.0.0.0'

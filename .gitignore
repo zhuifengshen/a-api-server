@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+.vscode
+
+# build
+*.egg
+*.egg-info
+dist
+build
+__pycache__
+.pypirc
+*.py[cod]
