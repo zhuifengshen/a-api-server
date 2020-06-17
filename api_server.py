@@ -162,7 +162,7 @@ def create_user(uid):
             'success': False,
             'msg': "user already existed."
         }
-        status_code = 500
+        status_code = 422
 
     response = make_response(json.dumps(result), status_code)
     response.headers["Content-Type"] = "application/json"
@@ -216,7 +216,7 @@ def delete_user(uid):
     user = users_dict.pop(uid, {})
     if user:
         success = True
-        status_code = 200
+        status_code = 204
     else:
         success = False
         status_code = 404
