@@ -92,14 +92,14 @@ http://your.ip:5000
 
 | 参数名       | 参数类型  | 参数说明     | 备注  |
 | ----------- | -------- | ----------- | ---- |
-| sign        | String   | 加密签名     |      |
+| sign        | String   | 加密签名     | 根据请求头和密钥加密生成     |
 
 - 响应参数
 
-| 参数名       | 参数类型  | 参数说明     | 备注 |
-| ----------- | -------- | ----------- | ---- |
-| success     | Boolean  | 是否成功     |      |
-| token       | String   | 访问令牌     |      |
+| 参数名       | 参数类型  | 参数说明     | 备注    |
+| ----------- | -------- | ----------- | ------ |
+| success     | Boolean  | 是否成功     |         |
+| token       | String   | 访问令牌     | 长度16位 |
 
 - 成功返回
 ```
@@ -120,6 +120,20 @@ http://your.ip:5000
     'msg': "Authorization failed!"
 }
 ```
+
+- 签名生成算法
+```python
+def get_sign(*args):
+    SECRECT_KEY = 'YouMi'
+	content = ''.join(args).encode('ascii')
+	sign_key = SECRECT_KEY.encode('ascii')
+	sign = hmac.new(sign_key, content, hashlib.sha1).hexdigest()
+	return sign
+
+sign = get_sign(user_agent, device_sn, os_platform, app_version)
+
+```
+
 
 #### 2.2. 新建用户
 - 请求路径：/api/users/:id

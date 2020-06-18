@@ -11,7 +11,7 @@ from flask import Flask, make_response, request
 FLASK_APP_HOST = '0.0.0.0'
 FLASK_APP_PORT = 5000
 DEBUG = True
-SECRET_KEY = "DebugTalk"
+SECRET_KEY = "YouMi"
 
 app = Flask(__name__)
 
