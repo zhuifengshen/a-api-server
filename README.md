@@ -43,11 +43,11 @@ http://your.ip:5000
 - 需要授权的 API ，必须在请求头中使用`device_sn`字段提供设备序列号和 `token` 字段提供访问令牌
 - 全局请求头
 
-| 参数名       | 参数类型  | 参数说明     | 备注 |
-| ----------- | -------- | ----------- | ---- |
-| Content-Type| String   | 内容类型     | application/json |
-| device_sn   | String   | 设备序列号    |      |
-| token       | String   | 访问令牌      |      |
+| 参数名       | 参数类型  | 参数说明     | 备注                    |
+| ----------- | -------- | ----------- | ---------------------- |
+| Content-Type| String   | 内容类型     | application/json       |
+| device_sn   | String   | 设备序列号    | 唯一设备标识符           |
+| token       | String   | 访问令牌      | 拥有token的设备才有访问权 |
 
 #### 1.1. 支持的请求方法
 

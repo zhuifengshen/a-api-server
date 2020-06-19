@@ -36,7 +36,7 @@ users_dict = {}
 data structure:
     token_dict = {
         'device_sn1': 'token1',
-        'device_sn2': 'token1'
+        'device_sn2': 'token2'
     }
 """
 token_dict = {}
@@ -109,7 +109,7 @@ def get_token():
 
     expected_sign = get_sign(user_agent, device_sn, os_platform, app_version)
 
-    if expected_sign != sign:
+    if expected_sign != sign or not user_agent or not device_sn or not os_platform or not app_version:
         result = {
             'success': False,
             'msg': "Authorization failed!"
