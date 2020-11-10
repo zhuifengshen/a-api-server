@@ -222,7 +222,7 @@ def delete_user(uid):
     user = users_dict.pop(uid, {})
     if user:
         success = True
-        status_code = 204
+        status_code = 200
     else:
         success = False
         status_code = 404
