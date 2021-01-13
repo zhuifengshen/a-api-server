@@ -6,7 +6,7 @@ A api server，是一个 Resful 风格的简易 API 服务，提供了对用户�
 
 #### 1. 本地启动服务
 
-- （1）pipy 安装启动
+- （1）命令行启动
 
 ```
 pip install A-Api-Server
@@ -16,6 +16,7 @@ a_api_server 自定义端口号（默认5000）
 - （2）clone 源码启动
 
 ```
+pip install gunicorn flask
 cd a_api_server
 python api_server.py 自定义端口号（默认5000）
 ```
