@@ -98,7 +98,7 @@ def index():
         </div>
     """
 
-@app.route('/api/get-token', methods=['POST'])
+@app.route('/api/get-token/', methods=['POST'])
 def get_token():
     user_agent = request.headers.get('User-Agent', "")
     device_sn = request.headers.get('device_sn', "")
@@ -128,7 +128,7 @@ def get_token():
     response.headers["Content-Type"] = "application/json"
     return response
 
-@app.route('/api/users')
+@app.route('/api/users/')
 @validate_request
 def get_users():
     users_list = [user for uid, user in users_dict.items()]
@@ -141,7 +141,7 @@ def get_users():
     response.headers["Content-Type"] = "application/json"
     return response
 
-@app.route('/api/reset-all')
+@app.route('/api/reset-all/')
 @validate_request
 def clear_users():
     users_dict.clear()
@@ -152,7 +152,7 @@ def clear_users():
     response.headers["Content-Type"] = "application/json"
     return response
 
-@app.route('/api/users/<int:uid>', methods=['POST'])
+@app.route('/api/users/<int:uid>/', methods=['POST'])
 @validate_request
 def create_user(uid):
     user = request.get_json()
@@ -174,7 +174,7 @@ def create_user(uid):
     response.headers["Content-Type"] = "application/json"
     return response
 
-@app.route('/api/users/<int:uid>')
+@app.route('/api/users/<int:uid>/')
 @validate_request
 def get_user(uid):
     user = users_dict.get(uid, {})
@@ -195,7 +195,7 @@ def get_user(uid):
     response.headers["Content-Type"] = "application/json"
     return response
 
-@app.route('/api/users/<int:uid>', methods=['PUT'])
+@app.route('/api/users/<int:uid>/', methods=['PUT'])
 @validate_request
 def update_user(uid):
     user = users_dict.get(uid, {})
@@ -216,7 +216,7 @@ def update_user(uid):
     response.headers["Content-Type"] = "application/json"
     return response
 
-@app.route('/api/users/<int:uid>', methods=['DELETE'])
+@app.route('/api/users/<int:uid>/', methods=['DELETE'])
 @validate_request
 def delete_user(uid):
     user = users_dict.pop(uid, {})
