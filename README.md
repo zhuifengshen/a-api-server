@@ -137,7 +137,7 @@ http://your.ip:5000
 
 ```python
 def get_sign(*args):
-    SECRECT_KEY = 'YouMi'
+    SECRECT_KEY = 'DebugTalk'
 	content = ''.join(args).encode('ascii')
 	sign_key = SECRECT_KEY.encode('ascii')
 	sign = hmac.new(sign_key, content, hashlib.sha1).hexdigest()
